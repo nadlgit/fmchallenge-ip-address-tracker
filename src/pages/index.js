@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { PageLayout } from 'components/page-layout';
+import { MainApp } from 'components/main-app';
 
 export default function Home() {
   return (
@@ -11,13 +11,7 @@ export default function Home() {
           content="Solution to Frontend Mentor challenge IP Address Tracker"
         />
       </Head>
-
-      <PageLayout>
-        <h1>IP Address Tracker</h1>
-        {/* Search */}
-        {/* Info */}
-        {/* Map */}
-      </PageLayout>
+      <MainApp />
     </>
   );
 }
