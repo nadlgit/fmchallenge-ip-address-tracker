@@ -1,6 +1,6 @@
 import styles from './location-info.module.css';
 
-export const LocationInfo = ({ ip, location, timezone, isp }) => {
+export const LocationInfo = ({ ip = '', location = '', timezone = '', isp = '' }) => {
   return (
     <div className={styles.container}>
       <div className={styles.section}>
