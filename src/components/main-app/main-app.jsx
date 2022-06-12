@@ -9,7 +9,7 @@ export const MainApp = () => {
     <div className={styles.container}>
       <main>
         <h1>IP Address Tracker</h1>
-        <Search />
+        <Search onSearch={() => {}} />
         <LocationInfo
           ip={'192.212.174.101'}
           location={'Brooklyn, NY 10001'}
