@@ -1,10 +1,28 @@
 .container {
+  --bg-width: max(1440px, 100vw);
+  --bg-height: max(250px, calc(100vw * 250 / 1440));
   position: relative;
   min-height: 100vh;
+  background: url('./pattern-bg.png') no-repeat top/var(--bg-width);
 }
+
+.container main h1 {
+  font-size: 1.5rem;
+  font-weight: var(--font-weight-medium);
+  color: white;
+}
+
 .container footer {
   position: absolute;
   bottom: 0;
   padding-top: 1em;
   min-width: 100vw;
+}
+
+.map {
+  position: absolute;
+  bottom: 0;
+  z-index: -1;
+  width: 100vw;
+  height: calc(100vh - var(--bg-height) + 1px);
 }

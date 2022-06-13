@@ -1,5 +1,5 @@
 import styles from './search.module.css';
-import IconArrow from 'assets/images/icon-arrow.svg';
+import IconArrow from './icon-arrow.svg';
 import Image from 'next/image';
 import { useRef } from 'react';
 

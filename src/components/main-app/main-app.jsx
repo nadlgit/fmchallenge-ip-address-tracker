@@ -16,7 +16,9 @@ export const MainApp = () => {
           timezone={'-05:00'}
           isp={'SpaceX Starlink'}
         />
-        <Map />
+        <div className={styles.map}>
+          <Map />
+        </div>
       </main>
       <footer>
         <ChallengeAttribution />
