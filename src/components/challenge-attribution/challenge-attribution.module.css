@@ -1,4 +1,5 @@
 .attribution {
+  font-weight: var(--font-weight-bold);
   font-size: 0.6875rem;
   text-align: center;
 }
