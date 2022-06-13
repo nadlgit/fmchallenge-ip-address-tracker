@@ -1,5 +1,5 @@
 import styles from './search.module.css';
-import IconArrow from './icon-arrow.svg';
+import iconArrow from './icon-arrow.svg';
 import Image from 'next/image';
 import { useRef } from 'react';
 
@@ -16,7 +16,7 @@ export const Search = ({ onSearch = () => {} }) => {
     <form className={styles.form} onSubmit={handleSubmit}>
       <input ref={input} type="search" placeholder="Search for any IP address or domain" />
       <button>
-        <Image src={IconArrow} alt="Submit" />
+        <Image src={iconArrow} alt="Submit" />
       </button>
     </form>
   );

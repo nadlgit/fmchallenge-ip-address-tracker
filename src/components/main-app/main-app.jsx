@@ -2,7 +2,12 @@ import styles from './main-app.module.css';
 import { ChallengeAttribution } from 'components/challenge-attribution';
 import { Search } from 'components/search';
 import { LocationInfo } from 'components/location-info';
-import { Map } from 'components/map';
+
+import dynamic from 'next/dynamic';
+const Map = dynamic(() => import('components/map').then((module) => module.Map), {
+  ssr: false,
+  loading: () => <p>Loading map ...</p>,
+});
 
 export const MainApp = () => {
   return (
@@ -17,7 +22,7 @@ export const MainApp = () => {
           isp={'SpaceX Starlink'}
         />
         <div className={styles.map}>
-          <Map />
+          <Map longitude={51.505} latitude={-0.09} />
         </div>
       </main>
       <footer>
