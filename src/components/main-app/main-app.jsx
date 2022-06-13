@@ -22,7 +22,7 @@ export const MainApp = () => {
           isp={'SpaceX Starlink'}
         />
         <div className={styles.map}>
-          <Map longitude={51.505} latitude={-0.09} />
+          <Map latitude={40.65} longitude={-73.95} />
         </div>
       </main>
       <footer>
