@@ -1,7 +1,11 @@
 import { MapContainer, TileLayer, Marker } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
-import 'leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.css';
-import 'leaflet-defaulticon-compatibility';
+import L from 'leaflet';
+import iconLocation from './icon-location.svg';
+
+const markerIcon = new L.Icon({
+  iconUrl: iconLocation.src,
+});
 
 export const Map = ({ latitude = 0, longitude = 0 }) => {
   const position = [latitude, longitude];
@@ -19,7 +23,7 @@ export const Map = ({ latitude = 0, longitude = 0 }) => {
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
       />
-      <Marker position={position} interactive={false} />
+      <Marker position={position} interactive={false} icon={markerIcon}></Marker>
     </MapContainer>
   );
 };
