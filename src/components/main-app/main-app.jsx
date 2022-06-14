@@ -6,7 +6,9 @@ import { LocationInfo } from 'components/location-info';
 import dynamic from 'next/dynamic';
 const Map = dynamic(() => import('components/map').then((module) => module.Map), {
   ssr: false,
-  loading: () => <p>Loading map ...</p>,
+  loading: () => (
+    <div style={{ width: '100%', height: '100%', backgroundColor: 'hsl(0,0%,90%)' }}></div>
+  ),
 });
 
 export const MainApp = () => {
