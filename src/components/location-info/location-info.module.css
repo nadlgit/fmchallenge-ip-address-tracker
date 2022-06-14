@@ -1,6 +1,7 @@
 @value bp-large-screen from 'styles/breakpoints.module.css';
 
 .container {
+  z-index: 1000;
   display: grid;
   gap: 1em;
   padding: 1em;

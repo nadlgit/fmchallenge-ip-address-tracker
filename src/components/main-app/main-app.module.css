@@ -6,6 +6,14 @@
   background: url('./pattern-bg.png') no-repeat top/var(--bg-width);
 }
 
+.container main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1em;
+  gap: 1em;
+}
+
 .container main h1 {
   font-size: 1.5rem;
   font-weight: var(--font-weight-medium);
@@ -13,6 +21,7 @@
 }
 
 .container footer {
+  z-index: 1000;
   position: absolute;
   bottom: 0;
   padding-top: 1em;
@@ -22,7 +31,6 @@
 .map {
   position: absolute;
   bottom: 0;
-  z-index: -1;
   width: 100vw;
   height: calc(100vh - var(--bg-height) + 1px);
 }
