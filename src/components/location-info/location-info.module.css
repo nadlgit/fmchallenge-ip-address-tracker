@@ -26,19 +26,19 @@
 }
 .section p {
   font-weight: var(--font-weight-medium);
-  font-size: calc(0.85rem + 0.83vw);
+  font-size: calc(0.8rem + 0.82vw);
   overflow-wrap: break-word;
 }
 
 @media bp-large-screen {
   .container {
-    --location-info-col-gap: calc(-1.57em + 6.2vw);
+    --location-info-col-gap: calc(-1.6em + 5.7vw);
     top: calc(var(--bg-height) * 0.75);
     min-height: calc(var(--bg-height) * 0.5);
-    width: max(75vw, 43.75rem);
+    width: max(80vw, 43.75rem);
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: var(--location-info-col-gap);
-    padding: calc(0.9rem + 1.2vw);
+    padding: calc(0.75rem + 1vw);
   }
   .section {
     position: relative;
