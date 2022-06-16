@@ -1,36 +1,43 @@
+@value bp-large-screen from 'styles/breakpoints.module.css';
+
 .container {
   --bg-width: max(1440px, 100vw);
   --bg-height: max(250px, calc(100vw * 250 / 1440));
-  position: relative;
+  --border-radius: 15px;
+  --mobile-inner-width: calc(10rem + 44.8vw);
   min-height: 100vh;
   background: url('./pattern-bg.png') no-repeat top/var(--bg-width);
 }
 
 .container main {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 1em;
-  gap: 1em;
 }
 
 .container main h1 {
-  font-size: 1.5rem;
+  margin-block: 0.8em;
+  font-size: calc(1.5rem + 0.42vw);
   font-weight: var(--font-weight-medium);
   color: white;
 }
 
 .container footer {
   z-index: 1000;
-  position: absolute;
+  position: fixed;
   bottom: 0;
-  padding-top: 1em;
-  min-width: 100vw;
 }
 
 .map {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   width: 100vw;
   height: calc(100vh - var(--bg-height) + 1px);
+}
+
+@media bp-large-screen {
+  .container main h1 {
+    margin-block: 1em;
+  }
 }

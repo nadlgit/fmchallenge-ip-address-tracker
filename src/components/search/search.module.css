@@ -1,4 +1,7 @@
+@value bp-large-screen from 'styles/breakpoints.module.css';
+
 .form {
+  width: var(--mobile-inner-width);
   font-size: 1.125rem;
 }
 
@@ -9,13 +12,23 @@
 }
 
 .form input {
+  width: calc(100% - 3.2em);
   background-color: white;
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
+  border-top-left-radius: var(--border-radius);
+  border-bottom-left-radius: var(--border-radius);
 }
 
 .form button {
   background-color: black;
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
+  border-top-right-radius: var(--border-radius);
+  border-bottom-right-radius: var(--border-radius);
+}
+.form button:hover {
+  background-color: hsl(0, 0%, 20%);
+}
+
+@media bp-large-screen {
+  .form {
+    width: max(37vw, 30rem);
+  }
 }
