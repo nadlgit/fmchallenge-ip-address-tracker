@@ -22,4 +22,13 @@ describe('isValidIP with IP v4', () => {
     expect(isValidIP('256.22.33.44')).toBeFalsy();
     expect(isValidIP('11.22.33.')).toBeFalsy();
   });
+
+  it('returns false when empty string', () => {
+    expect(isValidIP('')).toBeFalsy();
+  });
+
+  it('ignores trailing spaces', () => {
+    const testValues = ['', '124.54.1.24', 'abcd'];
+    testValues.forEach((item) => expect(isValidIP(`  ${item}  `)).toBe(isValidIP(item)));
+  });
 });
