@@ -1,9 +1,11 @@
 import styles from './main-app.module.css';
+import { useState, useEffect } from 'react';
+import { useIpLocation } from 'utils/use-ip-location';
 import { ChallengeAttribution } from 'components/challenge-attribution';
 import { Search } from 'components/search';
 import { LocationInfo } from 'components/location-info';
-
 import dynamic from 'next/dynamic';
+
 const Map = dynamic(() => import('components/map').then((module) => module.Map), {
   ssr: false,
   loading: () => (
@@ -12,19 +14,29 @@ const Map = dynamic(() => import('components/map').then((module) => module.Map),
 });
 
 export const MainApp = () => {
+  const [ipLocation, setIpLocation] = useState({});
+  const [searchIp, setSearchIp] = useState('');
+  const { isLoading, error, data } = useIpLocation(searchIp);
+
+  useEffect(() => {
+    if (!isLoading && !error) {
+      setIpLocation(data);
+    }
+  }, [isLoading, error, data]);
+
   return (
     <div className={styles.container}>
       <main>
         <h1>IP Address Tracker</h1>
-        <Search onSearch={() => {}} />
+        <Search onSearch={setSearchIp} />
         <LocationInfo
-          ip={'192.212.174.101'}
-          location={'Brooklyn, NY 10001'}
-          timezone={'-05:00'}
-          isp={'SpaceX Starlink'}
+          ip={ipLocation?.ip}
+          location={ipLocation?.location}
+          timezone={ipLocation?.timezone}
+          isp={ipLocation?.isp}
         />
         <div className={styles.map}>
-          <Map latitude={40.65} longitude={-73.95} />
+          <Map latitude={ipLocation?.latitude} longitude={ipLocation?.longitude} />
         </div>
       </main>
       <footer>
