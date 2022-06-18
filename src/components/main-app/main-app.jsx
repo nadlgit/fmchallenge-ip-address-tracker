@@ -14,7 +14,14 @@ const Map = dynamic(() => import('components/map').then((module) => module.Map),
 });
 
 export const MainApp = () => {
-  const [ipLocation, setIpLocation] = useState({});
+  const [ipLocation, setIpLocation] = useState({
+    ip: '',
+    location: '',
+    timezone: '',
+    isp: '',
+    latitude: 0,
+    longitude: 0,
+  });
   const [searchIp, setSearchIp] = useState('');
   const { isLoading, error, data } = useIpLocation(searchIp);
 
