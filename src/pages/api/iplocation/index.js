@@ -9,12 +9,10 @@ const getClientIP = async () => {
   return ip;
 };
 
-const getRequestIP = (request) => requestIp.getClientIp(request);
-
 const isLocalhostIP = (ip) => ['127.0.0.1', '::1', '::ffff:127.0.0.1'].includes(ip);
 
 export default async function handler(req, res) {
-  let ip = getRequestIP(req);
+  let ip = requestIp.getClientIp(req);
   if (!ip || isLocalhostIP(ip)) {
     ip = await getClientIP();
   }
