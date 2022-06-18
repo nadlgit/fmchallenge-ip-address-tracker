@@ -6,8 +6,13 @@ export const useIpLocation = (ip) => {
   const [data, setData] = useState({});
   useEffect(() => {
     fetch(`/api/iplocation/${ip ?? ''}`)
-      .then((data) => {
-        return data.json();
+      .then((response) => {
+        if (!response.ok) {
+          return Promise.reject(
+            new Error(`Unexpected API error ${response.status} ${response.statusText}.`)
+          );
+        }
+        return response.json();
       })
       .then((json) => {
         setData(json);
