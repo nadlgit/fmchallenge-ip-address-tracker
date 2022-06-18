@@ -4,14 +4,7 @@ import { useIpLocation } from 'utils/use-ip-location';
 import { ChallengeAttribution } from 'components/challenge-attribution';
 import { Search } from 'components/search';
 import { LocationInfo } from 'components/location-info';
-import dynamic from 'next/dynamic';
-
-const Map = dynamic(() => import('components/map').then((module) => module.Map), {
-  ssr: false,
-  loading: () => (
-    <div style={{ width: '100%', height: '100%', backgroundColor: 'hsl(0,0%,90%)' }}></div>
-  ),
-});
+import { Map } from 'components/map';
 
 export const MainApp = () => {
   const [ipLocation, setIpLocation] = useState({
