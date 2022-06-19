@@ -1,34 +1,37 @@
 import { isValidIP } from './helpers';
 
-describe('isValidIP with IP v4', () => {
-  it('returns true when valid address', () => {
-    expect(isValidIP('11.22.33.44')).toBeTruthy();
-    expect(isValidIP('0.0.0.0')).toBeTruthy();
-    expect(isValidIP('255.255.255.255')).toBeTruthy();
+describe('isValidIP()', () => {
+  it('should return false when param is not a string', () => {
+    expect(isValidIP({})).toBeFalsy();
   });
 
-  it('returns false when there are not only numeric characters and 3 dots', () => {
-    expect(isValidIP('11.22.33.44.55')).toBeFalsy();
-    expect(isValidIP('11.22.3344')).toBeFalsy();
-    expect(isValidIP('a.22.33.44')).toBeFalsy();
-    expect(isValidIP('-1.22.33.44')).toBeFalsy();
-    expect(isValidIP('11 .22.33.44')).toBeFalsy();
-  });
-
-  it('returns false when there are not 4 numbers between 0 and 255', () => {
-    expect(isValidIP('11.22.33.256')).toBeFalsy();
-    expect(isValidIP('11.22.256.44')).toBeFalsy();
-    expect(isValidIP('11.256.33.44')).toBeFalsy();
-    expect(isValidIP('256.22.33.44')).toBeFalsy();
-    expect(isValidIP('11.22.33.')).toBeFalsy();
-  });
-
-  it('returns false when empty string', () => {
+  it('should return false for empty string', () => {
     expect(isValidIP('')).toBeFalsy();
   });
 
-  it('ignores trailing spaces', () => {
+  it('should ignore trailing spaces', () => {
     const testValues = ['', '124.54.1.24', 'abcd'];
     testValues.forEach((item) => expect(isValidIP(`  ${item}  `)).toBe(isValidIP(item)));
+  });
+});
+
+describe('isValidIP() for IP v4', () => {
+  it.each(['11.22.33.44', '0.0.0.0', '255.255.255.255'])('should return true for "%s"', (val) => {
+    expect(isValidIP(val)).toBeTruthy();
+  });
+
+  it.each([
+    '11.22.33.256',
+    '11.22.256.44',
+    '11.256.33.44',
+    '256.22.33.44',
+    '11.22.33.',
+    '11.22.33.44.55',
+    '11.22.3344',
+    'a.22.33.44',
+    '-1.22.33.44',
+    '11 .22.33.44',
+  ])('should return false for "%s"', (val) => {
+    expect(isValidIP(val)).toBeFalsy();
   });
 });

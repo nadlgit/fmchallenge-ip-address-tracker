@@ -1,4 +1,8 @@
 export const isValidIP = (ipAddress) => {
+  if (typeof ipAddress !== 'string') {
+    return false;
+  }
+
   // Only IP v4 is handled
   const ipParts = ipAddress?.trim()?.split('.');
   return (
