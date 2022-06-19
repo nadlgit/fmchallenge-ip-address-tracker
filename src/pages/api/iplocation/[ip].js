@@ -1,5 +1,10 @@
+import { fetchLocation } from 'services/geo-ipify-api';
+
 export default async function handler(req, res) {
   const { ip } = req.query;
+
+  // const result = await fetchLocation(ip ?? '');
+  // res.status(result?.httpCode).json(result?.payload);
 
   res.status(200).json({
     ip: '8.8.8.8',
