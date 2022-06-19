@@ -14,7 +14,7 @@ const MapPositionHandler = ({ position, zoom }) => {
 
 export const Map = ({ latitude = 0, longitude = 0 }) => {
   const position = [latitude, longitude];
-  const defaultZoom = 13;
+  const defaultZoom = 17;
   return (
     <MapContainer
       center={position}
