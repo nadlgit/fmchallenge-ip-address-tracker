@@ -14,8 +14,8 @@ export default async function handler(req, res) {
       longitude: -122.078514,
     },
   };
-  if (process.env.NODE_ENV === 'production' || process.env.USE_REAL_GEO_API) {
-    result = await fetchLocation(ip ?? '');
+  if (ip && (process.env.NODE_ENV === 'production' || process.env.NEXT_PUBLIC_USE_REAL_GEO_API)) {
+    result = await fetchLocation(ip);
   }
 
   res.status(result?.httpCode).json(result?.payload);

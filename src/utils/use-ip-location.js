@@ -1,11 +1,27 @@
 import { useState, useEffect } from 'react';
 
-export const useIpLocation = (ip) => {
+const handleOwnIp = async (searchIp) => {
+  let ip = searchIp;
+  if (
+    !searchIp &&
+    (process.env.NODE_ENV === 'production' || process.env.NEXT_PUBLIC_USE_REAL_GEO_API)
+  ) {
+    const response = await fetch('https://api.ipify.org/');
+    if (response.ok) {
+      ip = await response.text();
+    }
+  }
+  return ip;
+};
+
+export const useIpLocation = (searchIp) => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const [data, setData] = useState({});
+
   useEffect(() => {
-    fetch(`/api/iplocation/${ip ?? ''}`)
+    handleOwnIp(searchIp)
+      .then((ip) => fetch(`/api/iplocation/${ip ?? ''}`))
       .then((response) =>
         response.json().then((json) => {
           let error = `Unexpected API error ${response.status} ${response.statusText}.`;
@@ -24,6 +40,6 @@ export const useIpLocation = (ip) => {
       .finally(() => {
         setIsLoading(false);
       });
-  }, [ip]);
+  }, [searchIp]);
   return { isLoading, error, data };
 };
