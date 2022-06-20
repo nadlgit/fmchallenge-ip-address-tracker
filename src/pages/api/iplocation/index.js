@@ -1,14 +1,10 @@
 import { fetchLocation } from 'services/geo-ipify-api';
-import { isLocalhostIP } from 'utils/helpers';
-import requestIp from 'request-ip';
 
 export default async function handler(req, res) {
-  let ip = requestIp.getClientIp(req);
-  if (!ip || isLocalhostIP(ip)) {
-    const response = await fetch('https://api.ipify.org/');
-    if (response.ok) {
-      ip = await response.text();
-    }
+  let ip = '';
+  const response = await fetch('https://api.ipify.org/');
+  if (response.ok) {
+    ip = await response.text();
   }
 
   let result = {
