@@ -2,7 +2,7 @@
  * @jest-environment node
  */
 import { handleOwnIp } from './handle-own-ip';
-import { server, MOCK_OWN_IP, errorHandler } from 'test-mocks/ipify-api';
+import { server, OWN_IP_MOCK_VALUE, errorHandler } from 'test-mocks/ipify-api';
 
 describe('handleOwnIp()', () => {
   beforeAll(() => {
@@ -21,7 +21,7 @@ describe('handleOwnIp()', () => {
 
   it('should return same IP when provided', async () => {
     const testIp = '100.2.4.55';
-    expect(testIp).not.toBe(MOCK_OWN_IP);
+    expect(testIp).not.toBe(OWN_IP_MOCK_VALUE);
     const resIp = await handleOwnIp(testIp);
     expect(resIp).toBe(testIp);
   });
@@ -34,7 +34,7 @@ describe('handleOwnIp()', () => {
   it('should return API result when no IP provided and API is called', async () => {
     process.env.NEXT_PUBLIC_USE_REAL_GEO_API = 'true';
     const resIp = await handleOwnIp();
-    expect(resIp).toBe(MOCK_OWN_IP);
+    expect(resIp).toBe(OWN_IP_MOCK_VALUE);
   });
 
   it('should return empty when no IP provided and API is called and gets an error response', async () => {
