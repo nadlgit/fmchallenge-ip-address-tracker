@@ -1,4 +1,4 @@
-import { isValidIP } from './helpers';
+import { isValidIP } from './is-valid-ip';
 
 describe('isValidIP()', () => {
   it('should return false when param is not a string', () => {
