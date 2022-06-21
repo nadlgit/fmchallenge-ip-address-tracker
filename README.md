@@ -50,7 +50,7 @@ Users should be able to:
 - [CSS modules](https://github.com/css-modules/css-modules)
 - CSS grid and flexbox
 - CSS custom properties
-- Tested with [Jest](https://jestjs.io/) and [Testing Library](https://testing-library.com/)
+- Tested with [Jest](https://jestjs.io/), [Testing Library](https://testing-library.com/) and [MSW - Mock Service Worker](https://mswjs.io/)
 
 ### What I learned
 
