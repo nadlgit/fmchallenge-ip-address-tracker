@@ -1,7 +1,5 @@
-/**
- * @jest-environment node
- */
 import { handleOwnIp } from './handle-own-ip';
+import 'whatwg-fetch';
 import { server, OWN_IP_MOCK_VALUE, errorHandler } from 'test-mocks/ipify-api';
 import { isRealGeoAPIEnabled } from './is-real-geo-api-enabled';
 
