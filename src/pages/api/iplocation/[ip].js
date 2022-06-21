@@ -1,4 +1,5 @@
 import { fetchLocation } from 'services/geo-ipify-api';
+import { isRealGeoAPIEnabled } from 'utils/helpers';
 
 export default async function handler(req, res) {
   const { ip } = req.query;
@@ -14,7 +15,7 @@ export default async function handler(req, res) {
       longitude: -122.078514,
     },
   };
-  if (ip && (process.env.NODE_ENV === 'production' || process.env.NEXT_PUBLIC_USE_REAL_GEO_API)) {
+  if (ip && isRealGeoAPIEnabled()) {
     result = await fetchLocation(ip);
   }
 
