@@ -1,17 +1,14 @@
 export const composeResult = (json) => {
-  const location = (
-    json?.location?.city +
-    (json?.location?.city && json?.location?.region ? ', ' : '') +
-    json?.location?.region +
-    ` ${json?.location?.postalCode}`
-  ).trim();
+  const ip = json?.ip ?? '';
+  const city = json?.location?.city ?? '';
+  const region = json?.location?.region ?? '';
+  const postalCode = json?.location?.postalCode ?? '';
+  const timezone = json?.location?.timezone ?? '';
+  const isp = json?.isp ?? '';
+  const latitude = json?.location?.lat ?? 0;
+  const longitude = json?.location?.lng ?? 0;
 
-  return {
-    ip: json?.ip,
-    location,
-    timezone: json?.location?.timezone,
-    isp: json?.isp,
-    latitude: json?.location?.lat,
-    longitude: json?.location?.lng,
-  };
+  const location = (city + (city && region ? ', ' : '') + region + ` ${postalCode}`).trim();
+
+  return { ip, location, timezone, isp, latitude, longitude };
 };
