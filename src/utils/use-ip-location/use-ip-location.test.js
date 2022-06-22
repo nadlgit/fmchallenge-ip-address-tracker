@@ -61,7 +61,7 @@ describe('useIpLocation() hook', () => {
     expect(result.current.data).toEqual({});
 
     await waitFor(() => expect(result.current.isLoading).toBeFalsy());
-    expect(result.current.error).not.toBeNull();
+    expect(result.current.error).toBeDefined();
     expect(result.current.data).toEqual({});
   });
 });
