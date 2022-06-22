@@ -11,11 +11,14 @@ export const useIpLocation = (searchIp) => {
       .then((ip) => fetch(`/api/iplocation/${ip ?? ''}`))
       .then((response) =>
         response.json().then((json) => {
-          let error = `Unexpected API error ${response.status} ${response.statusText}.`;
-          if (json?.errorMessage) {
-            error += ` Message: ${json?.errorMessage}`;
+          if (!response.ok) {
+            let error = `Unexpected API error ${response.status} ${response.statusText}.`;
+            if (json?.errorMessage) {
+              error += ` Message: ${json?.errorMessage}`;
+            }
+            return Promise.reject(new Error(error));
           }
-          return response.ok ? json : Promise.reject(new Error(error));
+          return json;
         })
       )
       .then((json) => {
