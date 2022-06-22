@@ -1,2 +1,2 @@
-export { server, errorHandler } from './server';
+export { server } from './server';
 export * from './data';
