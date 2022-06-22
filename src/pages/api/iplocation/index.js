@@ -11,5 +11,5 @@ export default async function handler(req, res) {
     },
   };
 
-  res.status(result?.httpCode).json(result?.payload);
+  res.status(result?.httpCode).json(result?.payload ?? {});
 }

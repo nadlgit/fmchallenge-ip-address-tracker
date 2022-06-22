@@ -12,6 +12,11 @@ export const server = setupServer(
   rest.get(`${API_URL}/:ip`, (req, res, ctx) => {
     const { ip } = req.params;
     const result = testData.find((item) => item.ip === ip);
-    return result ? res(ctx.status(200), ctx.json(result)) : res(ctx.status(404));
+    return result
+      ? res(ctx.status(200), ctx.json(result))
+      : res(
+          ctx.status(404),
+          ctx.json({ errorMessage: `IP "${ip}" is not part of testing data set.` })
+        );
   })
 );

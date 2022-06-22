@@ -61,7 +61,11 @@ describe('useIpLocation() hook', () => {
     expect(result.current.data).toEqual({});
 
     await waitFor(() => expect(result.current.isLoading).toBeFalsy());
-    expect(result.current.error).toBeDefined();
     expect(result.current.data).toEqual({});
+    expect(result.current.error).toBeInstanceOf(Error);
+    expect(result.current.error.message).toMatch(/unexpected api error\W/i);
+    expect(result.current.error.message).toMatch(/\W404\s/i);
+    expect(result.current.error.message).toMatch(/\Wnot found\W/i);
+    expect(result.current.error.message).toContain(testIp);
   });
 });
