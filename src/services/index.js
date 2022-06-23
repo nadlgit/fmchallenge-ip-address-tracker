@@ -1,12 +1,12 @@
-const API_PROVIDER = 'geo-ipify';
+const API_PROVIDER = 'ipgeolocation';
 
 let apiProviderFetchLocation;
 if (API_PROVIDER === 'ipgeolocation') {
-  import('services/ipgeolocation-api').then((module) => {
+  import('./ipgeolocation-api').then((module) => {
     apiProviderFetchLocation = module.fetchLocation;
   });
 } else {
-  import('services/geo-ipify-api').then((module) => {
+  import('./geo-ipify-api').then((module) => {
     apiProviderFetchLocation = module.fetchLocation;
   });
 }

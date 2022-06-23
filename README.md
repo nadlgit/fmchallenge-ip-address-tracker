@@ -6,6 +6,11 @@ I chose NextJS because of its API routes feature, in order to prevent my API key
 
 NB: My solution is limited to IP v4 searches, because it is the easiest to validate without third party modules :-)
 
+NB2: 2 API providers are implemented:
+
+- [ipify IP Geolocation API](https://geo.ipify.org/), which is indicated by Frontend Mentor,
+- [ipgeolocation API](https://ipgeolocation.io/), which I added because its free plan (periodically renewable quota) is best suited for this project.
+
 ## Table of contents
 
 - [Overview](#overview)
@@ -44,8 +49,6 @@ Users should be able to:
 
 - [React](https://reactjs.org/) and [Next.js](https://nextjs.org/), bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app)
 - [Leaflet](https://leafletjs.com/) through [React Leaflet](https://react-leaflet.js.org/)
-- [ipify IP Geolocation API](https://geo.ipify.org/)
-- [ipgeolocation API](https://ipgeolocation.io/)
 - Responsive, mobile-first workflow
 - Semantic HTML5 markup
 - [CSS modules](https://github.com/css-modules/css-modules)

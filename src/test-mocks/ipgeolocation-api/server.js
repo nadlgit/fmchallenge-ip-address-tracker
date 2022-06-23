@@ -1,7 +1,7 @@
 import { rest } from 'msw';
 import { setupServer } from 'msw/node';
 import testData from './data.json';
-// import { isValidIP } from 'utils/helpers';
+import { isValidIP } from 'utils/helpers';
 
 const API_URL = 'https://api.ipgeolocation.io/ipgeo';
 
@@ -13,10 +13,13 @@ export const ERROR_API_KEY = Object.freeze({
   }),
 });
 
-// export const ERROR_INVALID_IP = Object.freeze({
-//   code: 422,
-//   messages: 'Input correct IPv4 or IPv6 address.',
-// });
+export const ERROR_INVALID_IP = Object.freeze({
+  code: 403,
+  payload: Object.freeze({
+    message:
+      'IP to geolocation lookup for domain or service name is not supported on your free subscription. This feature is available to all paid subscriptions only.',
+  }),
+});
 
 export const server = setupServer(
   rest.get(API_URL, (req, res, ctx) => {
@@ -25,9 +28,9 @@ export const server = setupServer(
     if (!apiKey || apiKey !== process.env.IPGEOLOCATION_API_KEY) {
       return res(ctx.status(ERROR_API_KEY.code), ctx.json(ERROR_API_KEY.payload));
     }
-    // if (ip && !isValidIP(ip)) {
-    //   return res(ctx.status(ERROR_INVALID_IP.code), ctx.json(ERROR_INVALID_IP.payload));
-    // }
+    if (ip && !isValidIP(ip)) {
+      return res(ctx.status(ERROR_INVALID_IP.code), ctx.json(ERROR_INVALID_IP.payload));
+    }
     const result = testData.find((item) => item.ip === ip);
     if (!result) {
       return res(
