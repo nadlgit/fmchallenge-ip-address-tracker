@@ -1,0 +1,80 @@
+[
+  {
+    "ip": "8.8.8.8",
+    "hostname": "dns.google",
+    "continent_code": "NA",
+    "continent_name": "North America",
+    "country_code2": "US",
+    "country_code3": "USA",
+    "country_name": "United States",
+    "country_capital": "Washington, D.C.",
+    "state_prov": "California",
+    "district": "Santa Clara",
+    "city": "Mountain View",
+    "zipcode": "94043-1351",
+    "latitude": "37.42240",
+    "longitude": "-122.08421",
+    "is_eu": false,
+    "calling_code": "+1",
+    "country_tld": ".us",
+    "languages": "en-US,es-US,haw,fr",
+    "country_flag": "https://ipgeolocation.io/static/flags/us_64.png",
+    "geoname_id": "6301403",
+    "isp": "Google LLC",
+    "connection_type": "",
+    "organization": "Google LLC",
+    "asn": "AS15169",
+    "currency": {
+      "code": "USD",
+      "name": "US Dollar",
+      "symbol": "$"
+    },
+    "time_zone": {
+      "name": "America/Los_Angeles",
+      "offset": -8,
+      "current_time": "2020-12-17 07:49:45.872-0800",
+      "current_time_unix": 1608220185.872,
+      "is_dst": false,
+      "dst_savings": 1
+    }
+  },
+  {
+    "ip": "80.125.163.172",
+    "hostname": "80.125.163.172",
+    "continent_code": "EU",
+    "continent_name": "Europe",
+    "country_code2": "FR",
+    "country_code3": "FRA",
+    "country_name": "France",
+    "country_capital": "Paris",
+    "state_prov": "Ile-de-France",
+    "district": "",
+    "city": "Bobigny",
+    "zipcode": "93000",
+    "latitude": 48.90548,
+    "longitude": 2.4649,
+    "is_eu": "true",
+    "calling_code": "+33",
+    "country_tld": ".fr",
+    "languages": "fr-FR,frp,br,co,ca,eu,oc",
+    "country_flag": "https://ipgeolocation.io/static/flags/fr_64.png",
+    "isp": "SFR SA",
+    "connection_type": "",
+    "organization": "SFR SA",
+    "asn": "AS29372",
+    "geoname_id": 12306891,
+    "currency": {
+      "name": "Euro",
+      "code": "EUR",
+      "symbol": "€"
+    },
+    "time_zone": {
+      "name": "Europe/Paris",
+      "offset": 1,
+      "current_time": "2022-06-23 03:38:48.249+0200",
+      "current_time_unix": "1.655948328249E9",
+      "is_dst": "true",
+      "dst_savings": 1
+    }
+  }
+]
