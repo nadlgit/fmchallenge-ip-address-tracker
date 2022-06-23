@@ -32,11 +32,11 @@ describe('fetchLocation()', () => {
     });
   });
 
-  // it('should return error object when invalid IP is provided', async () => {
-  //   const result = await fetchLocation('abcdefgh');
-  //   expect(result).toEqual({
-  //     httpCode: ERROR_INVALID_IP.code,
-  //     payload: { errorMessage: ERROR_INVALID_IP.payload.message },
-  //   });
-  // });
+  it('should return error object when invalid IP is provided', async () => {
+    const result = await fetchLocation('abcdefgh');
+    expect(result).toEqual({
+      httpCode: ERROR_INVALID_IP.code,
+      payload: { errorMessage: ERROR_INVALID_IP.payload.message },
+    });
+  });
 });

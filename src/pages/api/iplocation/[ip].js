@@ -1,4 +1,5 @@
-import { isRealGeoAPIEnabled, fetchLocation } from 'utils/helpers';
+import { fetchLocation } from 'services';
+import { isRealGeoAPIEnabled } from 'utils/helpers';
 
 export default async function handler(req, res) {
   const { ip } = req.query;
