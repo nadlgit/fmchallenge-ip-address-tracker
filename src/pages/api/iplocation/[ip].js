@@ -1,5 +1,4 @@
-import { fetchLocation } from 'services/geo-ipify-api';
-import { isRealGeoAPIEnabled } from 'utils/helpers';
+import { isRealGeoAPIEnabled, fetchLocation } from 'utils/helpers';
 
 export default async function handler(req, res) {
   const { ip } = req.query;

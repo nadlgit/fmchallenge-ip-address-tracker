@@ -45,6 +45,7 @@ Users should be able to:
 - [React](https://reactjs.org/) and [Next.js](https://nextjs.org/), bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app)
 - [Leaflet](https://leafletjs.com/) through [React Leaflet](https://react-leaflet.js.org/)
 - [ipify IP Geolocation API](https://geo.ipify.org/)
+- [ipgeolocation API](https://ipgeolocation.io/)
 - Responsive, mobile-first workflow
 - Semantic HTML5 markup
 - [CSS modules](https://github.com/css-modules/css-modules)
@@ -64,9 +65,9 @@ On the CSS side, I tried to be fully responsive, by making font sizes and so on 
 
 - [Integrating Next.js with Leaflet.js + Mapbox](https://dev.to/tsaxena4k/integrating-next-js-with-leaflet-js-mapbox-1351) - This article gave me the steps to use React Leaflet in a NextJS application, such as dynamic import or the workaround to display Leaflet default icons.
 
-- [Map <Marker> image does not appear on Next.js](https://github.com/PaulLeCam/react-leaflet/issues/808#issuecomment-977109769) - This comment on React Leaflet issue showed me that, for custom icon in NextJS, src attribute is needed.
+- [Map <Marker> image does not appear on Next.js](https://github.com/PaulLeCam/react-leaflet/issues/808#issuecomment-977109769) - This comment on React Leaflet issue showed me that, for custom icon in NextJS, `src` attribute is needed.
 
-- [React leaflet center attribute does not change when the center state changes](https://stackoverflow.com/questions/64665827/react-leaflet-center-attribute-does-not-change-when-the-center-state-changes/64667351#64667351) - This comment explains that React Leaflet MapContainer props are immutable, so you need to access the underlying map object and use its methods, such as setView() or flyTo().
+- [React leaflet center attribute does not change when the center state changes](https://stackoverflow.com/questions/64665827/react-leaflet-center-attribute-does-not-change-when-the-center-state-changes/64667351#64667351) - This comment explains that React Leaflet MapContainer props are immutable, so you need to access the underlying map object and use its methods, such as `setView` or `flyTo`.
 
 ## Author
 
