@@ -47,7 +47,7 @@ describe('MainApp component', () => {
     async (val) => {
       expect(val).not.toEqual(DEFAULT_DATA);
       render(<MainApp />);
-      userEvent.type(screen.getByRole('searchbox'), `${val.ip}{enter}`);
+      await userEvent.type(screen.getByRole('searchbox'), `${val.ip}{enter}`);
       await screen.findByText(val.ip);
       expect(screen.getByText(val.location)).toBeInTheDocument();
       expect(screen.getByText(`UTC ${val.timezone}`)).toBeInTheDocument();
