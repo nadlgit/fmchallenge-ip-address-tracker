@@ -3,10 +3,12 @@ import iconArrow from './icon-arrow.svg';
 import Image from 'next/image';
 import { useRef, useState } from 'react';
 import { isValidIP } from 'utils/helpers';
+import { toast } from 'react-toastify';
 
 export const Search = ({ onSearch = () => {} }) => {
   const inputControl = useRef();
   const [error, setError] = useState('');
+  const toastIdRef = useRef();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -15,13 +17,18 @@ export const Search = ({ onSearch = () => {} }) => {
       inputControl.current.value = '';
       value && onSearch(value);
     } else {
-      setError('Please enter a valid IP v4 address');
+      const message = 'Please enter a valid IP v4 address';
+      setError(message);
+      toastIdRef.current = toast.error(message);
     }
   };
 
   const handleCHange = (e) => {
     if (error && inputControl.current.value !== '') {
       setError('');
+      if (toast.isActive(toastIdRef.current)) {
+        toast.dismiss(toastIdRef.current);
+      }
     }
   };
 
