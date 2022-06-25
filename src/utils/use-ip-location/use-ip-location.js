@@ -7,6 +7,9 @@ export const useIpLocation = (searchIp) => {
   const [data, setData] = useState({});
 
   useEffect(() => {
+    setIsLoading(true);
+    setError(null);
+    setData({});
     handleOwnIp(searchIp)
       .then((ip) => fetch(`/api/iplocation/${ip ?? ''}`))
       .then((response) =>

@@ -68,4 +68,31 @@ describe('useIpLocation() hook', () => {
     expect(result.current.error.message).toMatch(/\Wnot found\W/i);
     expect(result.current.error.message).toContain(testIp);
   });
+  it('should reset states between API calls', async () => {
+    const errorIp = '1.2.3.4';
+    expect(testData.map((item) => item.ip)).not.toContain(errorIp);
+
+    const { result, rerender } = renderHook(({ ip = errorIp } = {}) => useIpLocation(ip));
+    expect(result.current.isLoading).toBeTruthy();
+    expect(result.current.error).toBeNull();
+    expect(result.current.data).toEqual({});
+
+    await waitFor(() => expect(result.current.isLoading).toBeFalsy());
+    expect(result.current.error).toBeInstanceOf(Error);
+    expect(result.current.data).toEqual({});
+
+    rerender({ ip: testData[0].ip });
+    expect(result.current.isLoading).toBeTruthy();
+    expect(result.current.error).toBeNull();
+    expect(result.current.data).toEqual({});
+
+    await waitFor(() => expect(result.current.isLoading).toBeFalsy());
+    expect(result.current.error).toBeNull();
+    expect(result.current.data).toEqual(testData[0]);
+
+    rerender({ ip: errorIp });
+    expect(result.current.isLoading).toBeTruthy();
+    expect(result.current.error).toBeNull();
+    expect(result.current.data).toEqual({});
+  });
 });
