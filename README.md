@@ -9,7 +9,7 @@ NB: My solution is limited to IP v4 searches, because it is the easiest to valid
 NB2: 2 API providers are implemented:
 
 - [ipify IP Geolocation API](https://geo.ipify.org/), which is indicated by Frontend Mentor,
-- [ipgeolocation API](https://ipgeolocation.io/), which I added because its free plan (periodically renewable quota) is best suited for this project.
+- [ipgeolocation API](https://ipgeolocation.io/), which I added because its free plan (periodic quota renewal) is best suited for this project.
 
 ## Table of contents
 
@@ -54,6 +54,7 @@ Users should be able to:
 - [CSS modules](https://github.com/css-modules/css-modules)
 - CSS grid and flexbox
 - CSS custom properties
+- [React-Toastify](https://github.com/fkhadra/react-toastify)
 - Tested with [Jest](https://jestjs.io/), [Testing Library](https://testing-library.com/) and [MSW - Mock Service Worker](https://mswjs.io/)
 
 ### What I learned
